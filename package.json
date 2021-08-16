@@ -1,0 +1,24 @@
+{
+    "name": "gonzalo_perez_workspace",
+    "version": "1.0.0",
+    "description": "",
+    "main": "login.js",
+    "dependencies": {
+        "lite-server": "^2.6.1"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "dev": "lite-server",
+        "test": "\u001b[A\u001b[C\u001b[C\u001b\u001b[C\u001b[C\u001blogin\u001b[C\u001b[B"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gunizzlo/gonzalo_perez_obligatorio.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gunizzlo/gonzalo_perez_obligatorio/issues"
+    },
+    "homepage": "https://github.com/gunizzlo/gonzalo_perez_obligatorio#readme"
+}
