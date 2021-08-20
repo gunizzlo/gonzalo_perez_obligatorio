@@ -45,7 +45,7 @@ var getJSONData = function(url) {
 }
 
 function checkLog() {
-    if ((localStorage.getItem("usuario") === null) && (window.location.href != "http://localhost:3000/login.html")) {
+    if ((localStorage.getItem("usuario") === null) && (window.location.href != "http://localhost:3000/login.html" || "https://gunizzlo.github.io/gonzalo_perez_obligatorio/login.html")) {
         window.location.href = "login.html"
     } else {
         console.log(sessionStorage.usuario)
