@@ -7,6 +7,10 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japdevdep.github.io/ecommerce-api/pro
 const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
+
+document.addEventListener("DOMContentLoaded", function() {
+    checkLog();
+});
 var showSpinner = function() {
     document.getElementById("spinner-wrapper").style.display = "block";
 }
@@ -40,12 +44,10 @@ var getJSONData = function(url) {
         });
 }
 
-function login() {
-    sessionStorage.user = getElementById("email").value
-    console.log(sessionStorage.user)
-
-}
-
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+function checkLog() {
+    if ((localStorage.getItem("usuario") === null) && (window.location.href != "http://localhost:3000/login.html")) {
+        window.location.href = "login.html"
+    } else {
+        console.log(sessionStorage.usuario)
+    }
+};

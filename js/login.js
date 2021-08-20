@@ -6,13 +6,18 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     var id_token = googleUser.getAuthResponse().id_token;
     console.log(id_token);
+    localStorage.setItem("usuario", profile.getEmail()); //setItem almacena el dato en la posición "usuario"
+    sessionStorage.setItem("usuario", profile.getEmail());
 };
 
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
+    localStorage.clear();
+    sessionStorage.clear();
     auth2.signOut().then(function() {
         console.log('User signed out.');
-        window.location.href = "login.html";
+        location.href = "login.html";
+
     });
 };
 
@@ -25,7 +30,10 @@ function invitado() {
         console.log('Email: ' + datos);
         console.log(hoy.getFullYear() + '-' + hoy.getMonth() + '-' + hoy.getDay());
         console.log(hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds());
-        window.location.href = "index.html";
+        localStorage.setItem("usuario", datos); //setItem almacena el dato en la posición "usuario"
+        localStorage.setItem("password", datospass); // Almaceno la contraseña
+        sessionStorage.setItem("usuario", datos);
+        location.href = "index.html";
     } else {
         document.getElementById("email").style.border = "red 5px solid";
         document.getElementById('emailOK').innerText = "Mail y/o contraseña incorrectos"
