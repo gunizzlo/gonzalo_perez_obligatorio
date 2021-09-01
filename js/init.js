@@ -48,6 +48,6 @@ function checkLog() {
     if ((localStorage.getItem("usuario") === null) && (window.location.href != "http://localhost:3000/login.html") && (window.location.href != "https://gunizzlo.github.io/gonzalo_perez_obligatorio/login.html")) {
         window.location.href = "login.html"
     } else {
-        console.log(sessionStorage.usuario)
+        document.getElementById("user").innerHTML = sessionStorage.getItem("usuario")
     }
 };
