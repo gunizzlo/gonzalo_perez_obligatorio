@@ -1,5 +1,10 @@
 var productInfo = {};
 var comentInfo = {};
+var myCarousel = document.getElementById('carouselProductos')
+var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 2500,
+    wrap: true
+});
 
 function showImagesGallery(array) {
 
