@@ -1,10 +1,8 @@
 var productInfo = {};
 var comentInfo = {};
+var related = [];
 var myCarousel = document.getElementById('carouselProductos')
-var carousel = new bootstrap.Carousel(myCarousel, {
-    interval: 2500,
-    wrap: true
-});
+
 
 function showImagesGallery(array) {
 
@@ -28,6 +26,40 @@ function showImagesGallery(array) {
     }
 };
 
+function showRelated(array) {
+    let htmlContentToAppend = "";
+    getJSONData(PRODUCTS_URL).then(function(resultObj) {
+        if (resultObj.status === "ok") {
+            producto = resultObj;
+
+
+            for (let i = 0; i < array.length; i++) {
+
+                let related = array[i];
+                console.log(related);
+
+                for (let i = 0; i < producto.data.length; i++) {
+                    let product = producto.data[i];
+                    if (related === i) {
+                        htmlContentToAppend += `
+            <div class="card mb-3" style="width: 20rem;">
+            <img class="card-img-top" src="` + product.imgSrc + `" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">` + product.name + `</h5>
+                <p class="card-text">` + product.currency + `  ` + product.cost + ` </p>
+                <a href="product-info.html" class="card-link">Ver mas</a>
+            </div>
+            </div>`
+                        document.getElementById("relatedProducts").innerHTML = htmlContentToAppend;
+                    };
+                }
+            };
+        };
+    });
+};
+
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -47,9 +79,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
             productSoldCountHTML.innerHTML = product.soldCount;
             productCostHTML.innerHTML = product.currency + " " + product.cost;
             productCategoryHTML.innerHTML = `<a href="category-info.html">` + product.category + `</a>`;
-
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+            showRelated(product.relatedProducts);
         }
     });
 });
@@ -95,7 +127,7 @@ function showComents() {
 
 function subirComentario() {
     let htmlContentToAppend1 = "";
-    var user = document.getElementById("userInput").value;
+    var user = document.getElementById("userInput").placeholder;
     var comentario = document.getElementById("inputComentario").value;
     var userScore = document.getElementsByClassName("activo").length;
     let estrellas = `<span class="fa fa-star checked"></span>`
@@ -104,9 +136,9 @@ function subirComentario() {
     let puntajenega = estrellasnegras.repeat(5 - userScore);
     var answer = document.getElementById("checkAnswer").checked
     var hoy = new Date();
-    var dateTime = hoy.getFullYear() + '-' + hoy.getMonth() + '-' + hoy.getDay() + hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
+    var dateTime = hoy.getFullYear() + '-' + "0" + (hoy.getMonth() + 1) + '-' + (hoy.getDay() + 12) + '  ' + hoy.getHours() + ':' + hoy.getMinutes() + ':' + hoy.getSeconds();
 
-    if (user !== "" && comentario !== "" && userScore !== 0) {
+    if (comentario !== "" && userScore !== 0) {
         htmlContentToAppend1 += `
         <a class="list-group-item list-group-item-action">
             <div class="row">
@@ -129,7 +161,7 @@ function subirComentario() {
         document.getElementById("inputComentario").style.border = "";
     } else {
         document.getElementById("userInput").style.border = "red 5px solid";
-        document.getElementById("inputComentario").placeholder = "Debe ingresar Usuario, comentario y valoracion";
+        document.getElementById("inputComentario").placeholder = "Debe ingresar comentario y valoracion";
         document.getElementById("inputComentario").style.border = "red 5px solid";
     }
 };
@@ -152,4 +184,4 @@ $(".clasificacion").find("label").mouseover(function() {
             $(this).addClass("activo")
         }
     })
-})
+});

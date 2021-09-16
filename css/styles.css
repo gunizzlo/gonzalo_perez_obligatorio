@@ -171,3 +171,16 @@ a.custom-card:hover {
 .activo+label {
     color: rgb(255, 230, 0) !important;
 }
+
+#relatedProducts {
+    width: 20%;
+}
+
+#formularioComent {
+    width: 30%;
+}
+
+#comentInfo {
+    width: 60%;
+    float: left;
+}
