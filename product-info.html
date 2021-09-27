@@ -37,87 +37,91 @@
             </div>
         </div>
     </nav>
+    <main role="main">
+        <div class="container mt-5">
+            <div class="text-center p-4">
+                <h2>Descripción del producto</h2>
+                <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+                <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto seleccionado previamente, siempre se visualizará el presente: <strong>Onix Joy</strong>.</p>
+            </div>
 
-    <div class="text-center p-4">
-        <h2>Descripción del producto</h2>
-        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
-        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea la categoría seleccionada previamente, siempre se visualizará la presente: <strong>Autos</strong>.</p>
-    </div>
+            <h3 id="productName"></h3>
+            <hr class="my-3">
+            <dl>
+                <dt>Descripción:</dt>
+                <dd>
+                    <p id="productDescription"></p>
+                </dd>
 
-    <h3 id="productName"></h3>
-    <hr class="my-3">
-    <dl>
-        <dt>Descripción:</dt>
-        <dd>
-            <p id="productDescription"></p>
-        </dd>
+                <dt>Precio:</dt>
+                <dd>
+                    <p id="productCost"></p>
+                </dd>
 
-        <dt>Precio:</dt>
-        <dd>
-            <p id="productCost"></p>
-        </dd>
+                <dt>Cantidad de vendidos:</dt>
+                <dd>
+                    <p id="productSoldCount"></p>
+                </dd>
 
-        <dt>Cantidad de vendidos:</dt>
-        <dd>
-            <p id="productSoldCount"></p>
-        </dd>
+                <dt>Catregoria:</dt>
+                <dd>
+                    <p id="productCategory"></p>
+                </dd>
 
-        <dt>Catregoria:</dt>
-        <dd>
-            <p id="productCategory"></p>
-        </dd>
-
-        <dt>Imágenes ilustrativas:</dt>
+                <dt>Imágenes ilustrativas:</dt>
 
 
-        <div id="carouselProductos" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner" id="productImagesGallery"></div>
+                <div id="carouselProductos" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="productImagesGallery"></div>
+                </div>
+
+
+                <dt>Productos relacionados:</dt>
+                <dd>
+                    <div class="card-group" id="relatedProducts"></div>
+                </dd>
+            </dl>
+
+
+
+
+
+            <dt>Opiniones:</dt>
+            <div class="container-fluid" id="comentInfo"></div>
+
+
+            <form id="formularioComent">
+                <dt>Dejanos tu comentario:</dt>
+                <div class="form-group">
+                    <label for="userInput" aria-required="true">Usuario:</label>
+                    <input type="text" class="form-control" id="userInput" aria-describedby="emailHelp" placeholder="" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="inputComentario">Comentario:</label>
+                    <textarea class="form-control" id="inputComentario" rows="2" placeholder="Ingrese aqui su comentario."></textarea>
+                    <small id="comentarioMuted" class="form-text text-muted">Tu opinion nos ayuda.</small>
+                </div>
+                <p class="clasificacion">
+                    <input id="radio1" type="radio" name="estrellas" value="1">
+                    <label for="radio1">★</label>
+                    <input id="radio2" type="radio" name="estrellas" value="2">
+                    <label for="radio2">★</label>
+                    <input id="radio3" type="radio" name="estrellas" value="3">
+                    <label for="radio3">★</label>
+                    <input id="radio4" type="radio" name="estrellas" value="4">
+                    <label for="radio4">★</label>
+                    <input id="radio5" type="radio" name="estrellas" value="5">
+                    <label for="radio5">★</label>
+                </p>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="checkAnswer">
+                    <label class="form-check-label" for="checkAnswer">Deseo recibir una respuesta.</label>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="subirComentario()">Enviar</button>
+            </form>
         </div>
         </div>
-
-        <dt>Productos relacionados:</dt>
-        <dd>
-            <div class="card-group" id="relatedProducts"></div>
-        </dd>
-    </dl>
-
-
-
-
-
-    <dt>Opiniones:</dt>
-    <div class="container-fluid" id="comentInfo"></div>
-
-
-    <form id="formularioComent">
-        <dt>Dejanos tu comentario:</dt>
-        <div class="form-group">
-            <label for="userInput" aria-required="true">Usuario:</label>
-            <input type="text" class="form-control" id="userInput" aria-describedby="emailHelp" placeholder="" disabled>
-        </div>
-        <div class="form-group">
-            <label for="inputComentario">Comentario:</label>
-            <textarea class="form-control" id="inputComentario" rows="2" placeholder="Ingrese aqui su comentario."></textarea>
-            <small id="comentarioMuted" class="form-text text-muted">Tu opinion nos ayuda.</small>
-        </div>
-        <p class="clasificacion">
-            <input id="radio1" type="radio" name="estrellas" value="1">
-            <label for="radio1">★</label>
-            <input id="radio2" type="radio" name="estrellas" value="2">
-            <label for="radio2">★</label>
-            <input id="radio3" type="radio" name="estrellas" value="3">
-            <label for="radio3">★</label>
-            <input id="radio4" type="radio" name="estrellas" value="4">
-            <label for="radio4">★</label>
-            <input id="radio5" type="radio" name="estrellas" value="5">
-            <label for="radio5">★</label>
-        </p>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="checkAnswer">
-            <label class="form-check-label" for="checkAnswer">Deseo recibir una respuesta.</label>
-        </div>
-        <button type="button" class="btn btn-primary" onclick="subirComentario()">Enviar</button>
-    </form>
+    </main>
 
     <footer class="text-muted">
         <div class="container">
