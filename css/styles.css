@@ -186,3 +186,11 @@ a.custom-card:hover {
     width: 100%;
     float: center;
 }
+
+#productosCart {
+    padding: 2%;
+}
+
+#finalizarCompra {
+    display: none;
+}
