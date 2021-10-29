@@ -6,8 +6,9 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     var id_token = googleUser.getAuthResponse().id_token;
     console.log(id_token);
+    localStorage.setItem("foto", profile.getImageUrl())
     localStorage.setItem("usuario", profile.getEmail()); //setItem almacena el dato en la posición "usuario"
-    sessionStorage.setItem("usuario", profile.getEmail());
+    sessionStorage.setItem("usuario", profile.getEmail());;
     location.href = "index.html";
 };
 

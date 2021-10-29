@@ -52,14 +52,49 @@
             </div>
         </div>
     </nav>
-    <div class="container p-5">
-        <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-            <h4 class="alert-heading">¡A trabajar! :)</h4>
-            <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-            <hr>
-            <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <main role="main">
+        <div class="container mt-5">
+            <div class="text-center p-4">
+                <h2>Informacion de Usuario:</h2>
+            </div>
+            <div class="container" id="formularioDatos">
+                <img class="card-img-top" src="" alt="Imagen perfil" id="imgPerfil">
+                <form>
+                    <div class="form-group">
+                        <input type="file" class="form-control-file" id="imgPerfilInput">
+                    </div>
+                </form>
+                <dt>Nombre:</dt>
+                <h4 id="nombre"></h4>
+                <input class="form-control" type="text" placeholder="Nombre" id="nombreInput">
+                <input class="form-control" type="text" placeholder="Apellido" id="apellidoInput">
+                <hr class="my-3">
+                <dl>
+                    <dt>Edad:</dt>
+                    <dd>
+                        <p id="edad"></p>
+                        <input class="form-control" type="number" id="edadInput" min="18" max="80" placeholder="18">
+                    </dd>
+
+                    <dt>E-mail:</dt>
+                    <dd>
+                        <p id="mail"></p>
+                        <input class="form-control" type="text" id="mailInput" disabled>
+                    </dd>
+
+                    <dt>Telefono de contacto:</dt>
+                    <dd>
+                        <p id="telefono"></p>
+                        <input class="form-control" type="tel" placeholder="ej.: 097 891 011" id="telefonoInput" pattern="[0-9]{3} - [0-9]{3} - [0-9]{3}">
+                    </dd>
+                </dl>
+                <button type="button" class="btn btn-dark" id="btnModificar" onclick="modificar()">Modificar datos</button>
+                <button type="button" class="btn btn-primary" id="btnGuardar" onclick="checkForm()">Guardar cambios</button>
+            </div>
         </div>
-    </div>
+        </div>
+    </main>
+
     <footer class="text-muted bg-light">
         <div class="container">
             <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

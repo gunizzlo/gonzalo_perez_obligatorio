@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function(e) {
             showComents();
         }
     });
-    usuario = sessionStorage.getItem("usuario")
+    usuario = localStorage.getItem("usuario")
     document.getElementById("userInput").placeholder = usuario
 });
 

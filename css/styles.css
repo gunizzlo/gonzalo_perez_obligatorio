@@ -150,8 +150,8 @@ a.custom-card:hover {
 
 #carouselProductos {
     justify-self: center;
-    width: 30%;
-    height: 30%;
+    width: 50%;
+    height: 50%;
 }
 
 .clasificacion input[type='radio'] {
@@ -193,4 +193,46 @@ a.custom-card:hover {
 
 #finalizarCompra {
     display: none;
+}
+
+#nombreInput {
+    display: none;
+}
+
+#apellidoInput {
+    display: none;
+}
+
+#edadInput {
+    display: none;
+}
+
+#mailInput {
+    display: none;
+}
+
+#telefonoInput {
+    display: none;
+}
+
+#btnGuardar {
+    display: none;
+    float: right;
+}
+
+#imgPerfilInput {
+    display: none;
+}
+
+#imgPerfil {
+    width: 180px;
+    height: 200px;
+}
+
+.producto {
+    min-height: 150px;
+}
+
+.cardss {
+    margin-bottom: 5px;
 }

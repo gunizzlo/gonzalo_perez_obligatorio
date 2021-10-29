@@ -52,3 +52,13 @@ function checkLog() {
         document.getElementById("user").innerHTML = sessionStorage.getItem("usuario")
     }
 };
+
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    localStorage.clear();
+    sessionStorage.clear();
+    auth2.signOut().then(function() {
+        console.log('User signed out.');
+        location.href = "login.html";
+    });
+};

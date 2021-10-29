@@ -44,22 +44,22 @@ function showProductsInfo() {
         if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
 
+
+
             htmlContentToAppend += `
-            <a href="product-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
-                    <div class="col-3">
-                        <img src="` + product.imgSrc + `" alt="` + product.description + `" class="img-thumbnail">
+            <div class="col-md-6 cards">
+            <a href="product-info.html" class="card md-6 shadow-sm custom-card">
+            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="bd-placeholder-img card-img-top">
+            <div class="col producto">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h3 class="mb-6">` + product.name + `</h3>
+                        <small class="col-3 text-muted">(` + product.soldCount + ` artículos)</small>
+                        <p class="col-3">` + product.cost + ` ` + product.currency + `</p>
                     </div>
-                    <div class="col">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">` + product.name + `</h4>
-                            <small class="col align-self-end text-muted">` + product.soldCount + ` artículos</small>
-                            <small class="col align-self-end text-muted">` + product.cost + ` ` + product.currency + `</small>
-                        </div>
-                        <p class="mb-1">` + product.description + `</p>
-                    </div>
+                    <p class="mb-6">` + product.description + `</p>
                 </div>
             </a>
+        </div>
             `
         }
         document.getElementById("despliegueLista").innerHTML = htmlContentToAppend;
@@ -88,7 +88,7 @@ function buscador() {
     var info = listadoProductos.getElementsByTagName("a")
     console.log(filtro)
     for (i = 0; i < info.length; i++) {
-        producto = info[i].getElementsByClassName("mb-1");
+        producto = info[i].getElementsByClassName("mb-6");
         nombre = producto[0].innerHTML;
         desc = producto[1].innerHTML;
         console.log(info[i])
