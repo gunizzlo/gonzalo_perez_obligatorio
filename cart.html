@@ -96,16 +96,16 @@
                 </div>
                 <h4 id="totalCart" style="float: right;"></h4>
                 <div class="form-group">
-                    <legend class="col-form-label col-sm-2 pt-0">Pago</legend>
+                    <legend class="col-form-label col-sm-2 pt-0" id="medioPago">Pago</legend>
                     <div class="col-sm-10">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="transferenciaRadio" value="option1" checked>
+                            <input class="form-check-input" type="radio" name="gridRadios" id="transferenciaRadio" value="option1" onchange="modalPago()">
                             <label class="form-check-label" for="gridRadios1">
                         Transferencia Bancaria
                         </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="gridRadios" id="creditoRadio" value="option2">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="creditoRadio" value="option2" onchange="modalPago()">
                             <label class="form-check-label" for="gridRadios2">
                         Tarjeta de Credito
                         </label>
@@ -114,6 +114,118 @@
                     <button type="button" class="btn btn-primary mb-2" style="float: right;" onclick="checkForm()">Finzalizar Compra</button>
             </form>
             </div>
+            <div class="modal fade" id="modalTransferencia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Transferencia Bancaria:</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="metodoEnvio">Banco:</label>
+                                <select class="form-control" id="bancoTransferencia">
+                            <option data-toggle="tooltip" data-placement="right">Abitab</option>
+                            <option data-toggle="tooltip" data-placement="right">Red Pagos</option>
+                            <option data-toggle="tooltip" data-placement="right">Brou</option>
+                            <option data-toggle="tooltip" data-placement="right">Santander</option>
+                            <option data-toggle="tooltip" data-placement="right">Itau</option>
+                            <option data-toggle="tooltip" data-placement="right">HCBCC</option>
+                             </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputCedula">Cedula vinculada a la transferencia:</label>
+                                <input type="text" class="form-control" id="inputCedula" placeholder="1.234.567-2">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" onclick="transferencia()">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modalCredito" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Datos tarjeta de credito:</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                        </div>
+                        <div class="modal-body">
+                            <section id="right">
+                                <form action="#">
+                                    <div id="form-card" class="form-field">
+                                        <label for="inputTarjeta">Numero tarjeta:</label>
+                                        <input id="inputTarjeta" maxlength="19" placeholder="1111 2222 3333 4444" required>
+                                    </div>
+
+                                    <div id="form-date" class="form-field">
+                                        <label for="mesInput">Fecha expiracion:</label>
+                                        <div id="date-val">
+                                            <select id="mesInput" required>
+                                                <option  value="" default="default" selected="selected">Mes</option>
+                                                <option value="1">01</option>
+                                                <option value="2">02</option>
+                                                <option value="3">03</option>
+                                                <option value="4">04</option>
+                                                <option value="5">05</option>
+                                                <option value="6">06</option>
+                                                <option value="7">07</option>
+                                                <option value="8">08</option>
+                                                <option value="9">09</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                               </select>
+                                            <select id="añoInput" required>
+                                            <option value="" default="" selected="selected">Año</option>
+                                            <option value="2022">22</option>
+                                            <option value="2023">23</option>
+                                            <option value="2024">24</option>
+                                            <option value="2025">25</option>
+                                            <option value="2026">26</option>
+                                            <option value="2027">27</option>
+                                            <option value="2028">28</option>
+                                            <option value="2029">29</option>
+                                            <option value="2030">30</option>
+                                            <option value="2031">31</option>
+                                            <option value="2032">32</option>
+                                            <option value="2033">33</option>
+                                            <option value="2034">34</option>
+                                            <option value="2035">35</option>
+                                            <option value="2036">36</option>
+                                            <option value="2037">37</option>
+                                            <option value="2038">38</option>
+                                            <option value="2039">39</option>
+                                            <option value="2040">40</option>
+                                            <option value="2041">41</option>
+                                            <option value="2042">42</option>
+                                            <option value="2043">43</option>
+                                            <option value="2044">44</option>
+                                            <option value="2045">45</option>
+                                            <option value="2046">46</option>
+                                            <option value="2047">47</option>
+                                        </select>
+                                        </div>
+
+                                    </div>
+
+                                    <div id="form-sec-code" class="form-field">
+                                        <label for="sec-code">Codigo de seguridad:</label>
+                                        <input type="password" maxlength="3" placeholder="123" id="pinInput" required>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" onclick="credito()">Guardar</button>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
 
     </main>
 

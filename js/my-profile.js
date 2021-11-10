@@ -48,6 +48,10 @@ function checkForm() {
         edad.style.border = "red 5px solid";
         apellido.style.border = "red 5px solid";
         telefono.style.border = "red 5px solid";
+        nombre.placeholder = "Debe ingresar un nombre";
+        edad.placeholder = "Debe ingresar una edad";
+        apellido.placeholder = "Debe ingresar un apellido";
+        telefono.placeholder = "Debe ingresar un telefono";
     }
 }
 

@@ -80,13 +80,12 @@ function sortAndShowProducts(sortCriteria, productsInfoArray) {
     showProductsInfo();
 }
 
-function buscador() {
+/*/function buscador() {
 
     var input = document.getElementById("buscador")
     var filtro = input.value
     var listadoProductos = document.getElementById("despliegueLista")
     var info = listadoProductos.getElementsByTagName("a")
-    console.log(filtro)
     for (i = 0; i < info.length; i++) {
         producto = info[i].getElementsByClassName("mb-6");
         nombre = producto[0].innerHTML;
@@ -97,6 +96,52 @@ function buscador() {
         } else {
             info[i].style.display = "none";
         }
+    }
+};/*/
+
+function buscador() {
+    var aux = [];
+    var input = document.getElementById("buscador")
+    var filtro = input.value
+    var listadoProductos = currentProductsInfoArray;
+    for (i = 0; i < listadoProductos.length; i++) {
+        nombre = listadoProductos[i].name;
+        descr = listadoProductos[i].description;
+
+        if ((nombre.toUpperCase().indexOf(filtro.toUpperCase()) > -1) || (descr.toUpperCase().indexOf(filtro.toUpperCase()) > -1)) {
+
+            aux.push(listadoProductos[i]);
+        } else {
+            document.getElementById("despliegueLista").innerHTML = `<p>Ningun elemento coincide con el criterio de busqueda, intente nuevamente.</p>`;
+        }
+        let htmlContentToAppend = "";
+        for (let i = 0; i < aux.length; i++) {
+            let product = aux[i];
+
+            if (((minCount == undefined) || (minCount != undefined && parseInt(product.cost) >= minCount)) &&
+                ((maxCount == undefined) || (maxCount != undefined && parseInt(product.cost) <= maxCount))) {
+
+
+
+                htmlContentToAppend += `
+            <div class="col-md-6 cards">
+            <a href="product-info.html" class="card md-6 shadow-sm custom-card">
+            <img src="` + product.imgSrc + `" alt="` + product.description + `" class="bd-placeholder-img card-img-top">
+            <div class="col producto">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h3 class="mb-6">` + product.name + `</h3>
+                        <small class="col-3 text-muted">(` + product.soldCount + ` artículos)</small>
+                        <p class="col-3">` + product.cost + ` ` + product.currency + `</p>
+                    </div>
+                    <p class="mb-6">` + product.description + `</p>
+                </div>
+            </a>
+        </div>
+            `
+            }
+            document.getElementById("despliegueLista").innerHTML = htmlContentToAppend;
+        }
+
     }
 };
 
